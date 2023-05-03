@@ -29,3 +29,11 @@ store = {
 # "<товар> - <кол-во> шт, стоимость <общая стоимость> руб"
 
 # Пример: "Кроссовки тип 3 (Adidas) - 31 шт, стоимость 50747 руб"
+
+for title in titles:
+    pr = 0
+    quan = 0
+    for code in store[titles[title]]:
+        pr += code["quantity"] * code["price"]
+        quan += code["quantity"]
+    print(f'{title} - {quan} шт, стоимость {pr} руб')
