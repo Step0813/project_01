@@ -25,3 +25,28 @@
 #   - отображать в таблице/матрице название колонки не обязательно!
 #   - использовать готовые классы numpy.array() и pandas.DataFrame() запрещено!
 #   - проявите фантазию :)
+
+
+class Matrix:
+    def __init__(self, n, m):
+        self.matrix = [[1]*m for i in range(n)]   # создание матрицы из единиц размером nxm
+
+    def show(self):
+        for row in range(len(self.matrix)):
+            for col in range(len(self.matrix[0])):
+                print(str(self.matrix[row][col]).ljust(3), end=' ')
+            print() 
+            
+    def set_value(self, row, col, value):
+        self.matrix[row-1][col-1] = value   # установить новое значение ячейки
+
+    def rows_cols(self):
+        print('Количество строк:', len(self.matrix))
+        print('Количество столбцов:', len(self.matrix[0]))
+    
+
+m = Matrix(7, 9)   # создать матрицу из единиц размером n x m
+   
+m.set_value(3, 5, 8)    # установить/заменить значение конкретной ячейки
+m.show()    # вывод матрицы в терминале
+m.rows_cols()   # показать кол-во строк и столбцов
